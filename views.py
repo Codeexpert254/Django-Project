@@ -5,7 +5,7 @@ from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
 	context = {
-	"title": "Hello world",
+	"title": "WELCOME TO DAIKYO JAPAN MOTORS AN AUTOMOBILE DEALER!",
 	"content": "Welcome to the Home Page",
 
 	}
@@ -80,6 +80,8 @@ def register_page(request):
 		password = form.cleaned_data.get("password")
 		new_user = User.objects.create_user(username, email, password)	
 		print(new_user)	
+
+		context['form'] = RegisterForm()
 		
 	return render(request, "auth/register.html", context)
 
